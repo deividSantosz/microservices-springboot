@@ -5,10 +5,11 @@ public class PropostaResponseDto {
     public PropostaResponseDto() {
     }
 
-    public PropostaResponseDto(Long id, String nome, String telefone, String cpf, Double renda, Double valorSolicitado, int prazoPagamento, Boolean aprovado, String observacao) {
+    public PropostaResponseDto(Long id, String nome, String telefone,String sobrenome,  String cpf, Double renda, Double valorSolicitado, int prazoPagamento, Boolean aprovado, String observacao) {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
+        this.sobrenome = sobrenome;
         this.cpf = cpf;
         this.renda = renda;
         this.valorSolicitado = valorSolicitado;
@@ -22,6 +23,8 @@ public class PropostaResponseDto {
     private String nome;
 
     private String telefone;
+
+    private String sobrenome;
 
     private String cpf;
 
@@ -57,6 +60,14 @@ public class PropostaResponseDto {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
     }
 
     public String getCpf() {

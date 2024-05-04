@@ -6,8 +6,9 @@ public class PropostaResquestDTO {
 
     }
 
-    public PropostaResquestDTO(String nome, String telefone, String cpf, Double renda, Double valorSolicitado, int prazoPagamento) {
+    public PropostaResquestDTO(String nome, String telefone, String sobrenome,  String cpf, Double renda, Double valorSolicitado, int prazoPagamento) {
         this.nome = nome;
+        this.sobrenome = sobrenome;
         this.telefone = telefone;
         this.cpf = cpf;
         this.renda = renda;
@@ -15,8 +16,9 @@ public class PropostaResquestDTO {
         this.prazoPagamento = prazoPagamento;
     }
     private String nome;
-
+    private String sobrenome;
     private String telefone;
+
 
     private String cpf;
 
@@ -40,6 +42,14 @@ public class PropostaResquestDTO {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
     }
 
     public String getCpf() {
