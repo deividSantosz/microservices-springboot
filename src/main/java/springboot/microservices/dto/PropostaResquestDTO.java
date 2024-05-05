@@ -1,4 +1,4 @@
-package springboot.microservices.controllers.dto;
+package springboot.microservices.dto;
 
 public class PropostaResquestDTO {
 

@@ -1,11 +1,11 @@
-package springboot.microservices.controllers.dto;
+package springboot.microservices.dto;
 
 public class PropostaResponseDto {
 
     public PropostaResponseDto() {
     }
 
-    public PropostaResponseDto(Long id, String nome, String telefone,String sobrenome,  String cpf, Double renda, Double valorSolicitado, int prazoPagamento, Boolean aprovado, String observacao) {
+    public PropostaResponseDto(Long id, String nome, String telefone,String sobrenome,  String cpf, Double renda, String valorSolicitado, int prazoPagamento, Boolean aprovado, String observacao) {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
@@ -30,7 +30,7 @@ public class PropostaResponseDto {
 
     private Double renda;
 
-    private Double valorSolicitado;
+    private String valorSolicitado;
 
     private int prazoPagamento;
 
@@ -86,11 +86,11 @@ public class PropostaResponseDto {
         this.renda = renda;
     }
 
-    public Double getValorSolicitado() {
+    public String getValorSolicitado() {
         return valorSolicitado;
     }
 
-    public void setValorSolicitado(Double valorSolicitado) {
+    public void setValorSolicitado(String valorSolicitado) {
         this.valorSolicitado = valorSolicitado;
     }
 

@@ -3,9 +3,12 @@ package springboot.microservices.mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-import springboot.microservices.controllers.dto.PropostaResponseDto;
-import springboot.microservices.controllers.dto.PropostaResquestDTO;
+import springboot.microservices.dto.PropostaResponseDto;
+import springboot.microservices.dto.PropostaResquestDTO;
 import springboot.microservices.entities.Proposta;
+
+import java.text.NumberFormat;
+import java.util.List;
 
 @Mapper
 public interface PropostaMapper {
@@ -22,11 +25,17 @@ public interface PropostaMapper {
     @Mapping(target = "observacao", ignore = true)
     Proposta convertDtoToProposta(PropostaResquestDTO resquestDTO);
 
-
     @Mapping(target = "nome", source = "usuario.nome")
     @Mapping(target = "sobrenome", source = "usuario.sobrenome")
     @Mapping(target = "telefone", source = "usuario.telefone")
     @Mapping(target = "cpf", source = "usuario.cpf")
     @Mapping(target = "renda", source = "usuario.renda")
+    @Mapping(target = "valorSolicitado", expression = "java(setValorSolicitado(proposta))")
     PropostaResponseDto convertEntityToDto(Proposta proposta);
+
+    List<PropostaResponseDto> convertListEntityToListDto(Iterable<Proposta> propostas);
+
+    default String setValorSolicitado(Proposta proposta) {
+        return NumberFormat.getCurrencyInstance().format(proposta.getValorSolicitado());
+    }
 }

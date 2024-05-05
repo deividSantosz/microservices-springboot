@@ -2,11 +2,13 @@ package springboot.microservices.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import springboot.microservices.controllers.dto.PropostaResponseDto;
-import springboot.microservices.controllers.dto.PropostaResquestDTO;
+import springboot.microservices.dto.PropostaResponseDto;
+import springboot.microservices.dto.PropostaResquestDTO;
 import springboot.microservices.entities.Proposta;
 import springboot.microservices.mapper.PropostaMapper;
 import springboot.microservices.repositories.PropostaRepository;
+
+import java.util.List;
 
 @Service
 public class PropostaService {
@@ -19,4 +21,9 @@ public class PropostaService {
         return PropostaMapper.INSTANCE.convertEntityToDto(proposta);
     }
 
+    public List<PropostaResponseDto> obterProposta() {
+        Iterable<Proposta> propostas =  propostaRepository.findAll();
+        return PropostaMapper.INSTANCE.convertListEntityToListDto(propostas);
+
+    }
 }
